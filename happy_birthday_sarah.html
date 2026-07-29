@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sarah</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #1b1035 0%, #080314 100%);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* تأثيرات النجوم في الخلفية */
+        @keyframes twinkle {
+            0% { transform: translateY(0); opacity: 0.8; }
+            50% { opacity: 0.2; }
+            100% { transform: translateY(-1000px); opacity: 0.8; }
+        }
+
+        .stars, .stars2, .stars3 {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: transparent;
+            box-shadow: 10vw 10vh #fff, 20vw 20vh #fff, 30vw 50vh #fff, 40vw 80vh #fff, 
+                        50vw 30vh #fff, 60vw 60vh #fff, 70vw 90vh #fff, 80vw 20vh #fff, 
+                        90vw 70vh #fff, 15vw 85vh #fff, 25vw 15vh #fff, 35vw 65vh #fff,
+                        45vw 45vh #fff, 55vw 5vh #fff, 65vw 35vh #fff, 75vw 55vh #fff,
+                        85vw 95vh #fff, 95vw 25vh #fff;
+            animation: twinkle 50s linear infinite;
+            border-radius: 50%;
+        }
+
+        .stars2 {
+            width: 3px;
+            height: 3px;
+            animation-duration: 30s;
+            box-shadow: 5vw 50vh #ff99cc, 15vw 20vh #ff99cc, 45vw 80vh #99ccff, 
+                        65vw 10vh #99ccff, 85vw 60vh #ff99cc, 95vw 90vh #99ccff;
+        }
+
+        .stars3 {
+            width: 4px;
+            height: 4px;
+            animation-duration: 20s;
+            box-shadow: 10vw 40vh #fff, 30vw 80vh #fff, 60vw 20vh #fff, 90vw 50vh #fff;
+        }
+
+        /* حاوية المحتوى */
+        .container {
+            text-align: center;
+            z-index: 10;
+        }
+
+        /* تصميم النص وحركاته */
+        .greeting {
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 0 0 10px #ff66b2, 0 0 20px #ff66b2, 0 0 40px #ff66b2, 0 0 80px #ff66b2;
+            animation: floatText 3s ease-in-out infinite;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+
+        .greeting span {
+            color: #99ffff;
+            text-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 40px #00e6e6;
+        }
+
+        @keyframes floatText {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* الكعكة */
+        .cake-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            animation: bounceCake 4s ease-in-out infinite;
+        }
+
+        @keyframes bounceCake {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02) translateY(-5px); }
+        }
+
+        .cake {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+        }
+
+        /* الطبق */
+        .plate {
+            position: absolute;
+            bottom: -15px;
+            left: -25px;
+            width: 250px;
+            height: 20px;
+            background: #4d3373;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+
+        /* طبقات الكعكة */
+        .layer {
+            position: absolute;
+            left: 0;
+            width: 200px;
+            background: #ff99cc;
+            border-radius: 10px;
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
+        }
+
+        .bottom-layer {
+            bottom: 0;
+            height: 60px;
+            z-index: 2;
+        }
+
+        .middle-layer {
+            bottom: 60px;
+            left: 10px;
+            width: 180px;
+            height: 50px;
+            background: #ff80bf;
+            z-index: 3;
+        }
+
+        .top-layer {
+            bottom: 110px;
+            left: 20px;
+            width: 160px;
+            height: 40px;
+            background: #ff66b2;
+            z-index: 4;
+        }
+
+        /* الكريمة المتساقطة */
+        .icing {
+            position: absolute;
+            bottom: 150px;
+            left: 15px;
+            width: 170px;
+            height: 20px;
+            background: #fff;
+            border-radius: 20px 20px 0 0;
+            z-index: 5;
+        }
+
+        .drip {
+            position: absolute;
+            background: #fff;
+            width: 20px;
+            border-radius: 0 0 20px 20px;
+            z-index: 5;
+        }
+
+        .drip-1 { height: 40px; left: 30px; bottom: 120px; }
+        .drip-2 { height: 60px; left: 70px; bottom: 100px; }
+        .drip-3 { height: 30px; left: 110px; bottom: 130px; }
+        .drip-4 { height: 50px; left: 150px; bottom: 110px; }
+
+        /* الشمعة واللهب */
+        .candle {
+            position: absolute;
+            bottom: 170px;
+            left: 95px;
+            width: 10px;
+            height: 35px;
+            background: repeating-linear-gradient(
+                45deg,
+                #fff,
+                #fff 5px,
+                #00e6e6 5px,
+                #00e6e6 10px
+            );
+            border-radius: 2px;
+            z-index: 6;
+        }
+
+        .flame {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 20px;
+            background: #ffcc00;
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+            animation: flicker 0.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); opacity: 1; }
+            100% { transform: translateX(-50%) scale(1.1) rotate(5deg); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+    <!-- خلفية النجوم -->
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <div class="container">
+        <h1 class="greeting">Happy Birthday <span>Sarah</span></h1>
+        
+        <div class="cake-container">
+            <div class="cake">
+                <div class="plate"></div>
+                <div class="layer bottom-layer"></div>
+                <div class="layer middle-layer"></div>
+                <div class="layer top-layer"></div>
+                <div class="icing"></div>
+                <div class="drip drip-1"></div>
+                <div class="drip drip-2"></div>
+                <div class="drip drip-3"></div>
+                <div class="drip drip-4"></div>
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
